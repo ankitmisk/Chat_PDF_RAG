@@ -50,7 +50,7 @@ def get_vector_store(text_chunks):
             
         embeddings = GoogleGenerativeAIEmbeddings(
             model="models/embedding-001",
-            google_api_key=os.getenv("AIzaSyDl3dc5U_rBGDuEHiY9JIicnb-6FXd56ms")
+            google_api_key="AIzaSyDl3dc5U_rBGDuEHiY9JIicnb-6FXd56ms"
         )
         
         vector_store = FAISS.from_texts(text_chunks, embedding=embeddings)
@@ -94,7 +94,7 @@ def get_conversational_chain():
         model = ChatGoogleGenerativeAI(
             model="gemini-1.5-flash-002",
             temperature=0.3,
-            google_api_key=os.getenv("AIzaSyDl3dc5U_rBGDuEHiY9JIicnb-6FXd56ms")
+            google_api_key="AIzaSyDl3dc5U_rBGDuEHiY9JIicnb-6FXd56ms"
         )
         
         prompt = PromptTemplate.from_template(prompt_template)
@@ -117,7 +117,7 @@ def user_input(user_question):
         try:
             embeddings = GoogleGenerativeAIEmbeddings(
                 model="models/embedding-001",
-                google_api_key=os.getenv("AIzaSyDl3dc5U_rBGDuEHiY9JIicnb-6FXd56ms")
+                google_api_key="AIzaSyDl3dc5U_rBGDuEHiY9JIicnb-6FXd56ms"
             )
             vector_store = FAISS.load_local(
                 "faiss_index",
